@@ -17,8 +17,6 @@ class ArticleController extends AdminController
         $this->pathViewController = 'admin.pages.article.';
         $this->controllerName     = 'article';
         $this->model              = new MainModel();
-        // $this->mainRequest        = new MainRequest();
-        // dd($this->mainRequest);
 
         $this->params["pagination"]["totalItemsPerPage"] = 5;
         view()->share('controllerName', $this->controllerName);

@@ -24,9 +24,10 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->id;
-        $task   = $this->task;
-
+        $id   = $this->id;
+        // $task = $this->task || $this->task1 || $this->task2;
+        $task = isset($this->task)? $this->task: isset($this->task1)? $this->task1:$this->task2;
+        
         $condAvatar   = '';
         $condUserName = '';
         $condEmail    = '';

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 $prefixAdmin = config('zvn.url.prefix_admin');
 $prefixNews  = config('zvn.url.prefix_news');
 
+//!=================================================== ADMIN =======================================================
+
 Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin', 'middleware' => ['permission.admin']], function () {
     // ============================== DASHBOARD ==============================
     $prefix         = 'dashboard';
@@ -79,14 +81,18 @@ Route::group(['prefix' => $prefixAdmin, 'namespace' => 'Admin', 'middleware' => 
     });
 });
 
+
+
+
+//!=================================================== USER =======================================================
 Route::group(['prefix' => $prefixNews, 'namespace' => 'News'], function () {
     // ============================== HOMEPAGE ==============================
     $prefix         = '';
     $controllerName = 'home';
     Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
         $controller = ucfirst($controllerName)  . 'Controller@';
-        Route::get('/',                             [ 'as' => $controllerName,                  'uses' => $controller . 'index' ]);
-        Route::get('/not-found',                             [ 'as' => $controllerName. '/not-found',                  'uses' => $controller . 'notFound' ]);
+        Route::get('/',              [ 'as' => $controllerName,                  'uses' => $controller . 'index' ]);
+        Route::get('/not-found',     [ 'as' => $controllerName. '/not-found',    'uses' => $controller . 'notFound' ]);
     });
 
     // ============================== CATEGORY ==============================

@@ -7,7 +7,7 @@
     $formLabelAttr = config('zvn.template.form_label_edit');
 
     $inputHiddenID    = Form::hidden('id', $item['id']);
-    $inputHiddenTask  = Form::hidden('task', 'change-password');
+    $inputHiddenTask  = Form::hidden('task2', 'change-password');
 
     $elements = [
         [
@@ -34,7 +34,7 @@
                 'accept-charset' => 'UTF-8',
                 'enctype'        => 'multipart/form-data',
                 'class'          => 'form-horizontal form-label-left',
-                'id'             => 'main-form' ])  }}
+                'id'             => 'main-form', ])  }}
                 {!! FormTemplate::show($elements)  !!}
             {{ Form::close() }}
         </div>

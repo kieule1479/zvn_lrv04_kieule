@@ -37,7 +37,6 @@ class UserController extends AdminController
     //======== SAVE =========
     public function save(MainRequest $request)
     {
-        // $userRequest = app()->make('\App\Http\Requests\'.ucfirst($request->type));
         if ($request->method() == 'POST') {
             $params = $request->all();
 
@@ -48,6 +47,9 @@ class UserController extends AdminController
                 $task   = "edit-item";
                 $notify = "Cập nhật phần tử thành công!";
             }
+           
+
+
             $this->model->saveItem($params, ['task' => $task]);
             return redirect()->route($this->controllerName)->with("zvn_notify", $notify);
         }
